@@ -6,10 +6,11 @@ public class Primos {
     public static void main(String[] args) {
         int N = 60;
         
-        for (int i = 0; i <= N; i++)
-            inserir(i); 
+       // for (int i = 0; i <= N; i++)
+        //    inserir(i); 
         
-        primos();
+        inserir(0,N,inicio);
+        //primos();
         exibir(inicio);
         
         
@@ -37,6 +38,18 @@ public class Primos {
         }
         
         
+    }
+    static void inserir(int x, int n, No temp){
+        if(x == 0){
+            inicio = new No(x);
+            inserir(x+1,n,inicio);
+        }else
+            if(x==n)
+                temp.prox = new No(n);
+            else{
+                temp.prox = new No(x);
+                inserir(x+1,n,temp.prox);
+            }
     }
     
     static void inserir(int x){
