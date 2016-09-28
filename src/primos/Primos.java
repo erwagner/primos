@@ -9,7 +9,7 @@ public class Primos {
        // for (int i = 0; i <= N; i++)
         //    inserir(i); 
         
-        inserir(0,N,inicio);
+        inserir(N,inicio);
         //primos();
         exibir(inicio);
         
@@ -39,6 +39,22 @@ public class Primos {
         
         
     }
+    
+    static void inserir(int x, No temp){
+        if(x>=0){
+            if(temp == null){
+                temp = new No(x);
+                inicio = temp;
+            }
+            else{
+                inicio = new No(x);
+                inicio.prox = temp;
+            }
+            inserir(x-1,inicio);
+        }
+    
+    }    
+    
     static void inserir(int x, int n, No temp){
         if(x == 0){
             inicio = new No(x);
